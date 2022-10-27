@@ -178,7 +178,7 @@ Error codes the API returns:
 
 ## Testing
 To run the tests, run
-```
+```python
 dropdb trivia_test
 createdb trivia_test
 psql trivia_test < trivia.psql
