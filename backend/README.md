@@ -65,13 +65,13 @@ One note before you delve into your tasks: for each endpoint you are expected to
 7. Create a POST endpoint to get questions based on a search term. It should return any questions for whom the search term is a substring of the question. 
 8. Create a POST endpoint to get questions to play the quiz. This endpoint should take category and previous question parameters and return a random questions within the given category, if provided, and that is not one of the previous questions. 
 9. Create error handlers for all expected errors including 400, 404, 422 and 500.
-10. Add documentation for your endpoints
+10. Add documentation for your endpoints, error handlers and testing.
 
 REVIEW_COMMENT
 
 
 ## Endpoints
-##### GET '/categories'
+### GET '/categories'
 - Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 - Request Arguments: None
 - Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs. 
@@ -82,7 +82,7 @@ REVIEW_COMMENT
 '5' : "Entertainment",
 '6' : "Sports"}
 
-##### GET '/questions'
+### GET '/questions'
 - Fetches a list of 10 questions for the page, total number of questions, dictionary of all categories and the current category
 - Request Arguments: page(type:integer, default:1): dictates the page of questions the user requests
 - Returns a JSON object in the following format:
@@ -94,7 +94,7 @@ REVIEW_COMMENT
     'current_category' : current category (type: JSON(formatted category) or None)
 }
 
-##### DELETE '/questions/<int:question_id>'
+### DELETE '/questions/<int:question_id>'
 - Deletes a question using question id
 - Path parameters: question_id, the id of the question that you want to delete
 - Returns a JSON object in the following format:
@@ -103,7 +103,7 @@ REVIEW_COMMENT
     'deleted': deleted question id (type: integer)
 }
 
-##### POST '/questions'
+### POST '/questions'
 - if the request is a search it searches for questions using the search term provided, 
 it returns all questions for whom the search term is a substring of the question
 - Request body: 
@@ -131,7 +131,7 @@ it returns all questions for whom the search term is a substring of the question
     'created': the created question id (type: int)
 }
 
-##### GET '/categories/<int:category_id>/questions'
+### GET '/categories/<int:category_id>/questions'
 - Fetches all questions for a given category
 - path parameters : category_id, the id of the category
 - Returns a JSON object in the following format:
@@ -142,7 +142,7 @@ it returns all questions for whom the search term is a substring of the question
     'current_category': the current category (type: JSON(formatted category))
 }
 
-##### POST '/quizzes'
+### POST '/quizzes'
 - Fetches questions to play the quiz 
 - Request body:
 {
