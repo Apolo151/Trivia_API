@@ -52,7 +52,7 @@ Setting the `FLASK_ENV` variable to `development` will detect file changes and r
 
 Setting the `FLASK_APP` variable to `flaskr` directs flask to use the `flaskr` directory and the `__init__.py` file to find the application. 
 
-## Tasks
+## Tasks // DONE
 
 One note before you delve into your tasks: for each endpoint you are expected to define the endpoint and response data. The frontend will be a plentiful resource because it is set up to expect certain endpoints and response data formats already. You should feel free to specify endpoints in your own way; if you do so, make sure to update the frontend or you will get some unexpected behavior. 
 
@@ -64,19 +64,14 @@ One note before you delve into your tasks: for each endpoint you are expected to
 6. Create a POST endpoint to get questions based on category. 
 7. Create a POST endpoint to get questions based on a search term. It should return any questions for whom the search term is a substring of the question. 
 8. Create a POST endpoint to get questions to play the quiz. This endpoint should take category and previous question parameters and return a random questions within the given category, if provided, and that is not one of the previous questions. 
-9. Create error handlers for all expected errors including 400, 404, 422 and 500. 
+9. Create error handlers for all expected errors including 400, 404, 422 and 500.
+10. Add documentation for your endpoints
 
 REVIEW_COMMENT
-```
-This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
 
-Endpoints
-GET '/categories'
-GET ...
-POST ...
-DELETE ...
 
-GET '/categories'
+## Endpoints
+##### GET '/categories'
 - Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 - Request Arguments: None
 - Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs. 
@@ -87,7 +82,7 @@ GET '/categories'
 '5' : "Entertainment",
 '6' : "Sports"}
 
-GET '/questions'
+##### GET '/questions'
 - Fetches a list of 10 questions for the page, total number of questions, dictionary of all categories and the current category
 - Request Arguments: page(type:integer, default:1): dictates the page of questions the user requests
 - Returns a JSON object in the following format:
@@ -99,7 +94,7 @@ GET '/questions'
     'current_category' : current category (type: JSON(formatted category) or None)
 }
 
-DELETE '/questions/<int:question_id>'
+##### DELETE '/questions/<int:question_id>'
 - Deletes a question using question id
 - Path parameters: question_id, the id of the question that you want to delete
 - Returns a JSON object in the following format:
@@ -108,7 +103,7 @@ DELETE '/questions/<int:question_id>'
     'deleted': deleted question id (type: integer)
 }
 
-POST '/questions'
+##### POST '/questions'
 - if the request is a search it searches for questions using the search term provided, 
 it returns all questions for whom the search term is a substring of the question
 - Request body: 
@@ -136,7 +131,7 @@ it returns all questions for whom the search term is a substring of the question
     'created': the created question id (type: int)
 }
 
-GET '/categories/<int:category_id>/questions'
+##### GET '/categories/<int:category_id>/questions'
 - Fetches all questions for a given category
 - path parameters : category_id, the id of the category
 - Returns a JSON object in the following format:
@@ -147,7 +142,7 @@ GET '/categories/<int:category_id>/questions'
     'current_category': the current category (type: JSON(formatted category))
 }
 
-POST '/quizzes'
+##### POST '/quizzes'
 - Fetches questions to play the quiz 
 - Request body:
 {
@@ -160,7 +155,7 @@ POST '/quizzes'
     'question': the fetched question (type: JSON(formatted question))
 }
 
-Error Handling
+## Error Handling
 - Errors are returned as a JSON object in the following format:
 {
     'success': False,
